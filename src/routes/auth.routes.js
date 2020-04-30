@@ -6,7 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const AuthStack = createStackNavigator();
 
 const AuthRoutes = () => (
-  <AuthStack.Navigator>
+  <AuthStack.Navigator headerMode="none">
     <AuthStack.Screen name="SignIn" component={SignIn} />
   </AuthStack.Navigator>
 );
