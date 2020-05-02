@@ -19,7 +19,7 @@ import {
 
 import logo from '../../assets/logo.png';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <Container>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
@@ -31,13 +31,17 @@ const SignIn = () => {
       <Form>
         <Label>Email</Label>
         <Input>
-          <TextInput placeholder="Digite seu email" />
+          <TextInput
+            placeholder="Digite seu email"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
           <Icon name="email" size={18} color="#FF6277" />
         </Input>
 
         <Label>Senha</Label>
         <Input>
-          <TextInput placeholder="Digite sua senha" />
+          <TextInput placeholder="Digite sua senha" secureTextEntry={true} />
           <Icon name="lock" size={18} color="#FF6277" />
         </Input>
 
@@ -47,7 +51,7 @@ const SignIn = () => {
           </TouchableOpacity>
         </ForgotPasswordView>
 
-        <SubmitButton>
+        <SubmitButton onPress={() => navigation.navigate('SignUp')}>
           <SubmitText>ENTRAR</SubmitText>
         </SubmitButton>
 
