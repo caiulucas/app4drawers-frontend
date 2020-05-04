@@ -54,7 +54,7 @@ const SignUp = ({navigation}) => {
         </Input>
       </Form>
 
-      <SubmitButton>
+      <SubmitButton onPress={() => navigation.navigate('Feed')}>
         <SubmitText>CADASTRAR-SE</SubmitText>
       </SubmitButton>
     </Container>
