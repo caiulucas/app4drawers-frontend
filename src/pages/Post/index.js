@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Comment from '../../components/Comment';
 import {
   Container,
+  ReturnButton,
   Image,
   PostInfo,
   Avatar,
@@ -11,11 +13,6 @@ import {
   PostData,
   Description,
   CommentsView,
-  Comment,
-  CommentAvatar,
-  Content,
-  CommentAuthor,
-  CommentText,
   Input,
 } from './styles';
 
@@ -26,11 +23,12 @@ const color = '#ff6277';
 const uri =
   'https://vignette.wikia.nocookie.net/lotr/images/e/e7/Gandalf_the_Grey.jpg/revision/latest?cb=20121110131754';
 
-const Post = () => {
+const Post = ({navigation}) => {
   const [imageHeight, setImageHeight] = useState(0);
 
   return (
     <Container
+      showsVerticalScrollIndicator={false}
       onLayout={({nativeEvent}) => {
         Image.getSize(uri, (width, height) => {
           const screenWidth = nativeEvent.layout.width;
@@ -42,6 +40,9 @@ const Post = () => {
           setImageHeight(Math.ceil(newHeight));
         });
       }}>
+      <ReturnButton onPress={() => navigation.goBack()}>
+        <Icon name="navigate-before" size={24} color="#fff" />
+      </ReturnButton>
       <Image source={{uri}} resizeMode="contain" height={imageHeight} />
       <PostInfo>
         <AuthorView>
@@ -57,26 +58,14 @@ const Post = () => {
         </Description>
       </PostInfo>
       <CommentsView>
-        <Comment>
-          <CommentAvatar source={commentAuthor} />
-          <Content>
-            <CommentAuthor>Caio Lucas</CommentAuthor>
-            <CommentText>
-              Muito massa! Delicinha esse seu desenho Rafael! Preciso aprender
-              essas técnicas de colorido. Você é o cara. Parabéns!!!!!
-            </CommentText>
-          </Content>
+        <Comment avatar={commentAuthor} author="Caio Lucas">
+          Muito massa! Delicinha esse seu desenho Rafael! Preciso aprender essas
+          técnicas de colorido. Você é o cara. Parabéns!!!!!!
         </Comment>
 
-        <Comment>
-          <CommentAvatar source={commentAuthor} />
-          <Content>
-            <CommentAuthor>Caio Lucas</CommentAuthor>
-            <CommentText>
-              Muito massa! Delicinha esse seu desenho Rafael! Preciso aprender
-              essas técnicas de colorido. Você é o cara. Parabéns!!!!!
-            </CommentText>
-          </Content>
+        <Comment avatar={commentAuthor} author="Caio Lucas">
+          Muito massa! Delicinha esse seu desenho Rafael! Preciso aprender essas
+          técnicas de colorido. Você é o cara. Parabéns!!!!!!
         </Comment>
 
         <Input placeholder="Escreva um comentário..." />

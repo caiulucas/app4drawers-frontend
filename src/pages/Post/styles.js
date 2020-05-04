@@ -5,6 +5,21 @@ export const Container = styled.ScrollView`
   background-color: #fff;
 `;
 
+export const ReturnButton = styled.TouchableOpacity`
+  position: absolute;
+  z-index: 20;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+
+  top: 15px;
+  left: 15px;
+  right: 0px;
+`;
+
 export const Image = styled.Image`
   flex: 1;
   height: ${props => props.height}px;
@@ -50,36 +65,6 @@ export const Description = styled.Text`
 export const CommentsView = styled.View`
   flex: 1;
   padding: 20px 15px;
-`;
-
-export const Comment = styled.View`
-  flex-direction: row;
-  margin-bottom: 14px;
-`;
-
-export const CommentAvatar = styled.Image`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-`;
-
-export const Content = styled.View`
-  flex: 1;
-  background-color: #f2f2f2;
-  margin-left: 8px;
-  padding: 10px 15px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-`;
-
-export const CommentAuthor = styled.Text`
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-export const CommentText = styled.Text`
-  font-size: 16px;
 `;
 
 export const Input = styled.TextInput`
